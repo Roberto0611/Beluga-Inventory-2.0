@@ -1,0 +1,393 @@
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .min-vh-100 {
+        min-height: 100vh;
+    }
+
+    .btn-beluga-primary {
+        background-color: #E68A2E;
+        border-color: #E68A2E;
+        color: white;
+    }
+
+    .btn-beluga-primary:hover {
+        background-color: #d07a2a;
+        border-color: #d07a2a;
+    }
+
+    .btn-beluga-secondary {
+        background-color: #4CAF50;
+        border-color: #4CAF50;
+        color: white;
+    }
+
+    .btn-beluga-secondary:hover {
+        background-color: #45a049;
+        border-color: #45a049;
+    }
+
+    .btn-lg {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    .rounded-pill {
+        border-radius: 50rem !important;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+
+    .shadow-lg {
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+    }
+
+    .bg-beluga-orange {
+        background-color: #E68A2E !important;
+    }
+
+    .navbar-brand .fw-bold {
+        color: white;
+    }
+
+    /* Estilos para la sección de encabezado del inventario */
+    .inventory-header {
+        background-color: #6c757d;
+        text-align: center;
+        padding: 45px 165px;
+    }
+
+    .inventory-header h2 {
+        color: #FFF;
+        font-size: 36px;
+        margin: 0;
+    }
+
+    .inventory-header p {
+        color: #FFF;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* Estilos para la barra de búsqueda */
+    .search-bar {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 10px;
+        width: 60%;
+        border-radius: 100px;
+        border: 2px solid #000;
+        background: #FFF;
+    }
+
+    /* Estilos para el boton del modal */
+    .floating-action-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 70px;
+        height: 70px;
+        background-color: #305DFF;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(48, 93, 255, 0.3);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 1000;
+        outline: none;
+    }
+
+    .floating-action-btn::before {
+        content: '+';
+        font-size: 36px;
+        font-weight: 300;
+        display: block;
+        line-height: 1;
+        margin-top: -2px;
+    }
+
+    .floating-action-btn:hover {
+        background-color: #1a4eff;
+        transform: scale(1.1) rotate(90deg);
+        box-shadow: 0 8px 20px rgba(48, 93, 255, 0.4);
+    }
+
+    .floating-action-btn:active {
+        transform: scale(0.95) rotate(90deg);
+    }
+
+    /* Estilos personalizados para el acordeón (las "filas" de productos) */
+    .custom-accordion .accordion-item {
+        border: none;
+        /* Eliminar bordes por defecto */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        /* Sombra sutil */
+        transition: all 0.2s ease-in-out;
+    }
+
+    .custom-accordion .accordion-item:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+
+    .custom-accordion .custom-accordion-button {
+        background-color: white;
+        color: #333;
+        font-weight: 500;
+        padding: 1rem 1.25rem;
+        border: none;
+        border-radius: 0.5rem !important;
+        text-align: left;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .custom-accordion .custom-accordion-button:not(.collapsed) {
+        background-color: #f0f0f0;
+        /* Fondo ligeramente gris cuando está abierto */
+        color: #E68A2E;
+        /* Color del texto naranja cuando está abierto */
+        box-shadow: none;
+        /* Eliminar sombra extra al estar abierto */
+        border-bottom-left-radius: 0 !important;
+        /* Quitar redondeo inferior al abrir */
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .custom-accordion .custom-accordion-button::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236c757d'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        transform: scale(1.2);
+        /* Aumentar tamaño del icono de flecha */
+    }
+
+    .custom-accordion .custom-accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23E68A2E'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        transform: rotate(-180deg) scale(1.2);
+    }
+
+    .custom-accordion .accordion-body {
+        background-color: #fdfdfd;
+        border-top: 1px solid #eee;
+        padding: 1.5rem;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+
+    /* Estilos para los items de producto  */
+    .product-item {
+        border: 1px solid #e0e0e0;
+        border-radius: 0.75rem;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-item:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .imgProduct {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border: 1px solid #eee;
+    }
+
+    .product-name {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .product-price {
+        font-weight: 600;
+        color: #E68A2E;
+    }
+
+    /* ¡IMPORTANTE! Estos estilos deben cargarse ANTES que el script */
+    .faltante-cero {
+        color: #28a745 !important;
+        font-weight: normal !important;
+    }
+
+    .faltante-bajo {
+        color: #17a2b8 !important;
+        font-weight: normal !important;
+    }
+
+    .faltante-medio {
+        color: #ffc107 !important;
+        font-weight: 500 !important;
+    }
+
+    .faltante-alto {
+        color: #fd7e14 !important;
+        font-weight: 600 !important;
+    }
+
+    .faltante-critico {
+        color: #dc3545 !important;
+        font-weight: bold !important;
+    }
+
+    /* Estilos para la cápsula/medallón */
+    .counter-badge {
+        margin-left: 10px;
+        display: inline-block;
+    }
+
+    .badge {
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 5px 10px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .badge i {
+        font-size: 0.9em;
+    }
+
+    .bg-primary {
+        background-color: #0d6efd !important;
+    }
+
+    .bg-warning {
+        background-color: #ffc107 !important;
+    }
+
+    /* Custom CSS para tema oscuro */
+    .form-control:focus {
+        border-color: #d07a2a !important;
+        box-shadow: 0 0 0 0.2rem rgba(208, 122, 42, 0.25) !important;
+        background-color: #3a3a3a !important;
+        color: #ffffff !important;
+    }
+
+    .form-control::placeholder {
+        color: #888888 !important;
+    }
+
+    .form-check-input:checked {
+        background-color: #d07a2a !important;
+        border-color: #d07a2a !important;
+    }
+
+    .form-check-input:focus {
+        border-color: #d07a2a !important;
+        box-shadow: 0 0 0 0.2rem rgba(208, 122, 42, 0.25) !important;
+    }
+
+    .form-check-input {
+        background-color: #3a3a3a !important;
+        border-color: #555555 !important;
+    }
+
+    .card {
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .logo-container {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    /* Efectos de hover para inputs */
+    .form-control:hover {
+        background-color: #404040 !important;
+        transition: all 0.3s ease;
+    }
+
+    .input-group-text {
+        transition: all 0.3s ease;
+    }
+
+    .input-group:hover .input-group-text {
+        background-color: #404040 !important;
+    }
+
+    /* Animación sutil para el card */
+    .card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(208, 122, 42, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .card:hover::before {
+        left: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .card-body {
+            padding: 2rem !important;
+        }
+
+        .logo-container {
+            width: 60px !important;
+            height: 60px !important;
+        }
+
+        .logo-container i {
+            font-size: 24px !important;
+        }
+    }
+
+    /* Scrollbar dark theme */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #2d2d2d;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #d07a2a;
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #e89650;
+    }
+
+    #expiredButton.btn-success {
+    background-color: #dc3545; /* Rojo para productos caducados */
+    border-color: #dc3545;
+}
