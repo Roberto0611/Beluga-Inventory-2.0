@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Location;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -39,6 +40,15 @@ class DatabaseSeeder extends Seeder
             'name' => 'Miguel Angel',
             'email' => 'MiguelAngel',
             'password' => Hash::make('BelugaMi86') 
+        ]);
+
+        // ==== UBICACIONES ====
+        Location::create([
+            'name' => 'Almacén',
+        ]);
+
+        Location::create([
+            'name' => 'Auto',
         ]);
 
     }

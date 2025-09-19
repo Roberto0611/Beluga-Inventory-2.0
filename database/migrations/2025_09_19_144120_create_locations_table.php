@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->rememberToken();
+        Schema::create('locations', function (Blueprint $table) {
+            $table->id();
+            $table->string('name'); // Ej: "Almacén", "Auto", "Sucursal Norte"
             $table->timestamps();
-            $table->timestamp('email_verified_at')->nullable();
         });
     }
 
@@ -23,10 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropRememberToken();
-            $table->dropTimestamps();
-            $table->dropColumn('email_verified_at');
-        });
+        Schema::dropIfExists('locations');
     }
 };

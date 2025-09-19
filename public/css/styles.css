@@ -7,7 +7,7 @@
     }
 
     .btn-beluga-primary {
-        background-color: #E68A2E;
+        background-color: #b97d40;
         border-color: #E68A2E;
         color: white;
     }
@@ -46,7 +46,7 @@
     }
 
     .bg-beluga-orange {
-        background-color: #E68A2E !important;
+        background-color: #2fa38e !important;
     }
 
     .navbar-brand .fw-bold {
@@ -55,7 +55,7 @@
 
     /* Estilos para la sección de encabezado del inventario */
     .inventory-header {
-        background-color: #6c757d;
+        background-color: #333;
         text-align: center;
         padding: 45px 165px;
     }

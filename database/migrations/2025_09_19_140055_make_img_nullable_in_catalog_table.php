@@ -21,5 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('catalogo', function (Blueprint $table) {
+            $table->text('imagenURL')->nullable(false)->change();
+        });
     }
 };

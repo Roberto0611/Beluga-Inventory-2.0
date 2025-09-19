@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-beluga-orange shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="{{route('index')}}">
-            <span class="fw-bold">Beluga Pet Shed</span>
+            <span class="fw-bold">Beluga Inventory 2.0</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
