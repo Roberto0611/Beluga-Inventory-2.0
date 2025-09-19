@@ -43,18 +43,18 @@ Route::put('updateCatalog/{id}',[CatalogController::class, 'update'])->name('edi
 // Routes for plan
 Route::get('/plan',[PlanController::class,'index'])->name('plan')->middleware('auth');
 
-// Route for sells
-Route::get('/sellsIndex',[sellsController::class,'index'])->name('sells')->middleware('auth');
+// Route for sells (this codes are not more used in this version, because sells is another system)
+// Route::get('/sellsIndex',[sellsController::class,'index'])->name('sells')->middleware('auth');
 
-Route::get('/newsell',[sellsController::class,'newsell'])->name('newsell')->middleware('auth');
+// Route::get('/newsell',[sellsController::class,'newsell'])->name('newsell')->middleware('auth');
 
-Route::get('/showSell/{sellId}',[sellsController::class,'show'])->name('showSell')->middleware('auth');
+// Route::get('/showSell/{sellId}',[sellsController::class,'show'])->name('showSell')->middleware('auth');
 
-Route::post('/storeSell',[sellsController::class,'store'])->name('storeSell')->middleware('auth');
+// Route::post('/storeSell',[sellsController::class,'store'])->name('storeSell')->middleware('auth');
 
-Route::get('/deleteSell/{sellId}',[sellsController::class,'destroy'])->name('deleteSell')->middleware('auth');
+// Route::get('/deleteSell/{sellId}',[sellsController::class,'destroy'])->name('deleteSell')->middleware('auth');
 
-// Ticket
-Route::get('/ticket/{sellId}', action: [TicketController::class, 'generateTicket'])->name('ticket')->middleware('auth');
+// // Ticket
+// Route::get('/ticket/{sellId}', action: [TicketController::class, 'generateTicket'])->name('ticket')->middleware('auth');
 
-Route::get('/corte', action: [TicketController::class, 'generateCorte'])->name('corte')->middleware('auth');
+// Route::get('/corte', action: [TicketController::class, 'generateCorte'])->name('corte')->middleware('auth');

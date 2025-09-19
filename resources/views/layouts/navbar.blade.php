@@ -23,11 +23,6 @@
                         Plan 🗓️
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white d-flex align-items-center" href="{{route('sells')}}">
-                        Ventas 🛒
-                    </a>
-                </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
