@@ -13,11 +13,11 @@
     </div>
 
     {{-- Buttons --}}
-<div class="d-flex justify-content-center gap-2 p-2">
-    <button type="button" class="btn btn-success" id="allProductsButton">Todos los productos</button>
-    <button type="button" id="expireButton" class="btn btn-primary">Prontos a caducar</button>
-    <button type="button" id="expiredButton" class="btn btn-primary">Productos caducados</button>
-</div>
+    <div class="d-flex justify-content-center gap-2 p-2">
+        <button type="button" class="btn btn-success" id="allProductsButton">Todos los productos</button>
+        <button type="button" id="expireButton" class="btn btn-primary">Prontos a caducar</button>
+        <button type="button" id="expiredButton" class="btn btn-primary">Productos caducados</button>
+    </div>
 
     {{-- Modal button --}}
     <button class="floating-action-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -53,6 +53,16 @@
                             <label for="cantidad" class="form-label">Cantidad</label>
                             <input type="number" class="form-control" id="" name="cantidad">
                         </div>
+                        <div class="mb-3">
+                            <label for="location_id" class="form-label">Ubicación</label>
+                            <select name="location_id" id="location_select" class="form-select"
+                                aria-label="Default select example">
+                                <option selected disabled>Selecciona una ubicación...</option>
+                                @foreach ($locations as $location)
+                                    <option value="{{$location->id}}">{{$location->name}}</option>
+                                @endforeach
+                            </select>
+                        </div> 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -95,7 +105,6 @@
                                         <tr data-inventory-id="{{ $item->id }}">
                                             <td>{{ $item->quantity }}</td>
                                             <td class="dateInfo">{{ $item->expiration_date }}</td>
-
                                             @if (Auth::user()->is_admin)
                                                 <td>
                                                     <form action="{{route('reduceProduct')}}" method="POST" class="reduce-form">

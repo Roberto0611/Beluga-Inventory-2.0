@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Catalogo;
 use App\Models\Inventory;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -16,20 +17,24 @@ class InventoryController extends Controller
         $catalog = Catalogo::all()
         ->where('service','0');
 
-        $stock = Inventory::with('catalogo')
+        $locations = Location::all();
+
+        $stock = Inventory::with('catalogo','location')
         ->selectRaw('*, SUM(quantity) OVER (PARTITION BY catalogo_id) as total_quantity')
         ->orderBy('expiration_date')
         ->get()
         ->groupBy('catalogo_id');
 
-        return view('inventory.stock',compact('catalog','stock'));
+        return view('inventory.stock',compact('catalog','stock','locations'));
     }
 
     public function store(Request $request){
+        
         $stock = new Inventory();
         $stock->catalogo_id = $request->product_id;
         $stock->quantity = $request->cantidad;
         $stock->expiration_date = $request->caducidad;
+        $stock->location_id = $request->location_id;
 
         $stock->save();
 

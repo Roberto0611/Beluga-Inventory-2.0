@@ -10,4 +10,9 @@ class Inventory extends Model
     {
         return $this->belongsTo(\App\Models\Catalogo::class, 'catalogo_id');
     }
+
+    public function location()
+    {
+        return $this->belongsTo(\App\Models\Location::class, 'location_id');
+    }
 }
