@@ -21,7 +21,6 @@ class CatalogController extends Controller
         $item->nombre = $request->name;
         $item->Precio = $request->precio;
         $item->imagenURL = $request->imgUrl;
-        $item->IdealPetShed = $request->ideal;
         $item->service = 0;
 
         $item->save();
@@ -44,7 +43,6 @@ class CatalogController extends Controller
         $item->nombre = $request->name;
         $item->Precio = $request->precio;
         $item->imagenURL = $request->imgUrl;
-        $item->IdealPetShed = $request->ideal;
         $item->service = 0;
 
         $item->save();

@@ -81,12 +81,6 @@
                             <input type="text" class="form-control" id="imgUrl" name="imgUrl">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="ideal" class="form-label">Ideal Pet Shed </label>
-                            <input type="number" class="form-control" id="ideal" name="ideal">
-                        </div>
-
-
                         <button type="submit" class="btn btn-primary">Registrar producto</button>
                     </form>
                 </div>
