@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catalogo', function (Blueprint $table) {
+        Schema::create('newCatalogo', function (Blueprint $table) {
             $table->integer('ID')->autoIncrement();
             $table->string('nombre', 50)->collation('utf8mb4_general_ci')->nullable(false); 
             $table->integer('Precio')->nullable(); 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catalogo');
+        Schema::dropIfExists('newCatalogo');
     }
 };
