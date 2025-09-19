@@ -391,3 +391,61 @@
     background-color: #dc3545; /* Rojo para productos caducados */
     border-color: #dc3545;
 }
+
+    /* -------- Inventario: encabezados de ubicación (minimal styling) -------- */
+    .location-title-row .location-header-cell {
+        background: #f5f5f5;
+        font-size: 1.05rem;
+        letter-spacing: .5px;
+        padding: 14px 16px !important;
+        border-top: 2px solid #e3e3e3;
+        border-bottom: 2px solid #e3e3e3;
+    }
+
+    .location-header-icon {
+        font-size: 1.4rem;
+        margin-right: .55rem;
+        vertical-align: middle;
+    }
+
+    .location-header-text {
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+    /* Reducir contraste para filas de datos respecto al header de ubicación */
+    tr.inventory-row td {
+        background: #ffffff;
+    }
+
+    /* ---- Nuevo layout: bloque por ubicación ---- */
+    .location-block { border: 1px solid #e5e5e5; border-radius: 6px; padding: .35rem .75rem .25rem; margin-bottom: 1.5rem; background:#fff; }
+    .location-block-header { border-bottom: 1px solid #e1e1e1; padding-bottom: .35rem; margin-bottom: .35rem; }
+    .location-block-header .location-header-icon { font-size:1.35rem; }
+    .location-block-header h5 { font-size:1.05rem; letter-spacing:.5px; }
+
+    /* ---- Inventario: resumen y badges ---- */
+    .inventory-summary-bar { background:#ffffff; border:1px solid #e5e5e5; border-radius:8px; padding:.55rem .85rem; }
+    .summary-chip { background:#f5f5f5; border:1px solid #e1e1e1; border-radius:6px; padding:.35rem .65rem; font-size:.75rem; display:flex; flex-direction:column; min-width:90px; }
+    .summary-chip .chip-label { font-size:.60rem; letter-spacing:.7px; text-transform:uppercase; color:#555; }
+    .summary-chip .chip-value { font-weight:600; font-size:.85rem; color:#222; }
+    .summary-status { padding:.45rem .75rem; border-radius:20px; font-size:.70rem; font-weight:600; letter-spacing:.5px; text-transform:uppercase; }
+    .inv-badge-expired { background:#dc3545; color:#fff; }
+    .inv-badge-soon { background:#ffc107; color:#212529; }
+    .inv-badge-fresh { background:#198754; color:#fff; }
+
+    .loc-metric { font-size:.65rem; text-transform:uppercase; letter-spacing:.5px; }
+    .loc-exp { font-size:.60rem; letter-spacing:.5px; }
+    .badge-expired { background:#dc3545 !important; color:#fff !important; }
+    .badge-soon { background:#ffc107 !important; color:#000 !important; }
+    .badge-fresh { background:#198754 !important; color:#fff !important; }
+
+    .toggle-loc { font-size:.65rem; padding:.25rem .6rem; }
+    .toggle-loc:focus { box-shadow:0 0 0 .15rem rgba(0,0,0,.15); }
+
+    .location-table-wrapper { transition: all .2s ease; }
+
+    @media (max-width: 768px){
+        .summary-chip { min-width:70px; }
+        .inventory-summary-bar { gap:.5rem !important; }
+    }

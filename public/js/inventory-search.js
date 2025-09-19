@@ -107,6 +107,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             let tieneRegistrosValidos = false;
             const rows = accordion.querySelectorAll("tbody tr");
+            // Primero mostrar todos los location-block por defecto
+            const locBlocks = accordion.querySelectorAll('.location-block');
+            locBlocks.forEach(b => b.style.display = '');
             
             rows.forEach(row => {
                 const dateText = cleanDateString(row.querySelector(".dateInfo").textContent);
@@ -131,11 +134,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
+            // Ocultar location-blocks que no tienen filas visibles
+            locBlocks.forEach(block => {
+                const visibleRows = block.querySelectorAll('tbody tr');
+                let anyVisible = false;
+                visibleRows.forEach(r => { if(r.style.display !== 'none'){ anyVisible = true; } });
+                block.style.display = anyVisible ? '' : 'none';
+            });
+
             accordion.style.display = (tieneRegistrosValidos && cumpleBusqueda) ? "" : "none";
         });
 
         // Actualizar contadores después de aplicar filtros
         window.actualizarContadores();
+        if(typeof window.updateAllProductSummaries === 'function'){
+            window.updateAllProductSummaries();
+        }
+        // Actualizar selects de ubicaciones según bloques visibles
+        document.querySelectorAll('#inventoryAccordion .accordion-item').forEach(item => {
+            const productIdMatch = item.querySelector('.accordion-collapse')?.id?.match(/^collapse(\d+)/);
+            if(productIdMatch && typeof window.updateSelectOptionsForProduct === 'function'){
+                window.updateSelectOptionsForProduct(productIdMatch[1]);
+            }
+        });
     }
 
     searchInput.addEventListener("input", function() {
@@ -192,4 +213,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Inicializar contadores al cargar
     window.actualizarContadores();
+    if(typeof window.updateAllProductSummaries === 'function'){
+        window.updateAllProductSummaries();
+    }
+    document.querySelectorAll('#inventoryAccordion .accordion-item').forEach(item => {
+        const productIdMatch = item.querySelector('.accordion-collapse')?.id?.match(/^collapse(\d+)/);
+        if(productIdMatch && typeof window.updateSelectOptionsForProduct === 'function'){
+            window.updateSelectOptionsForProduct(productIdMatch[1]);
+        }
+    });
 });
