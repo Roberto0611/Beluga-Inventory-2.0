@@ -24,7 +24,8 @@
                     </div>
                     <div class="product-details flex-grow-1 text-center">
                         <h5 class="mb-1 product-name">{{$item->nombre}}</h5>
-                        <p class="mb-0 text-muted">Ideal en Pet Shed: {{$item->IdealPetShed}}</p>
+                        <p class="mb-0 text-muted">Ideal en Almacen: {{$item->IdealAlmacen}}</p>
+                        <p class="mb-0 text-muted">Ideal en Auto: {{$item->IdealAuto}}</p>
                         <p class="mb-0 product-price"> Precio: ${{$item->Precio}} </p>
                     </div>
                     <div class="product-actions d-flex flex-column align-items-end gap-2">
@@ -39,7 +40,7 @@
                         <button data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-primary edit-btn"
                             data-id="{{$item->ID}}" data-name="{{$item->nombre}}" data-price="{{$item->Precio}}"
                             data-imgurl="{{$item->imagenURL}}"
-                            data-ideal="{{$item->IdealPetShed}}">Editar✍️</button>
+                            data-ideal-almacen="{{$item->IdealAlmacen}}" data-ideal-auto="{{$item->IdealAuto}}">Editar✍️</button>
                     </div>
                 </div>
 
@@ -114,8 +115,12 @@
                             <input type="text" class="form-control" id="edit-imgUrl" name="imgUrl">
                         </div>
                         <div class="mb-3">
-                            <label for="edit-ideal" class="form-label">Ideal Pet Shed</label>
-                            <input type="number" class="form-control" id="edit-ideal" name="ideal">
+                            <label for="edit-ideal-almacen" class="form-label">Ideal almacen:</label>
+                            <input type="number" class="form-control" id="edit-ideal-almacen" name="idealAlmacen">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-ideal-auto" class="form-label">Ideal auto:</label>
+                            <input type="number" class="form-control" id="edit-ideal-auto" name="idealAuto">
                         </div>
                         <button type="submit" class="btn btn-primary">Actualizar producto</button>
                     </form>
