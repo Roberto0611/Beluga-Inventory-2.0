@@ -78,6 +78,16 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="idealAlmacen" class="form-label">Ideal almacen:</label>
+                            <input type="number" class="form-control" id="idealAlmacen" name="idealAlmacen">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="idealAuto" class="form-label">Ideal auto:</label>
+                            <input type="number" class="form-control" id="idealAuto" name="idealAuto">
+                        </div>
+
+                        <div class="mb-3">
                             <label for="imgUrl" class="form-label">URL de la imagen</label>
                             <input type="text" class="form-control" id="imgUrl" name="imgUrl">
                         </div>

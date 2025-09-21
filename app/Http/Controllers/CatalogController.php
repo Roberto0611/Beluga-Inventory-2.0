@@ -21,6 +21,16 @@ class CatalogController extends Controller
         $item->nombre = $request->name;
         $item->Precio = $request->precio;
         $item->imagenURL = $request->imgUrl;
+
+        if ($request->idealAlmacen == null) {
+            $request->idealAlmacen = 0;
+        }
+        if ($request->idealAuto == null) {
+            $request->idealAuto = 0;
+        }
+
+        $item->IdealAlmacen = $request->idealAlmacen;
+        $item->IdealAuto = $request->idealAuto; 
         $item->service = 0;
 
         $item->save();
