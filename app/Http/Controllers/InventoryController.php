@@ -29,6 +29,12 @@ class InventoryController extends Controller
     }
 
     public function store(Request $request){
+
+        $validated = $request->validate([
+        'product_id' => 'required|exists:catalogo,id',
+        'cantidad' => 'required|integer|min:1',
+        'location_id' => 'required|exists:locations,id'
+        ]);
         
         $stock = new Inventory();
         $stock->catalogo_id = $request->product_id;

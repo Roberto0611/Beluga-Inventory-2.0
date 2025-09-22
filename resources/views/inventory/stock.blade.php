@@ -7,6 +7,18 @@
         <p>Control de Productos</p>
     </div>
 
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-danger" role="alert">
+                    {{ $error }}
+                </div>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {{-- SearchBar --}}
     <div class="search-bar">
         <input type="text" class="searchBarIndex" id="searchInput" placeholder="Buscar productos...">
@@ -56,7 +68,7 @@
                         <div class="mb-3">
                             <label for="location_id" class="form-label">Ubicación</label>
                             <select name="location_id" id="location_select" class="form-select"
-                                aria-label="Default select example">
+                                aria-label="Default select example" required>
                                 <option selected disabled>Selecciona una ubicación...</option>
                                 @foreach ($locations as $location)
                                     <option value="{{$location->id}}">{{$location->name}}</option>
