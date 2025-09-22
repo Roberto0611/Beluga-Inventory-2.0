@@ -7,17 +7,8 @@
         <p>Control de Productos</p>
     </div>
 
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                <div class="alert alert-danger" role="alert">
-                    {{ $error }}
-                </div>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <!-- Alerts -->
+    @include('layouts.alerts') 
 
     {{-- SearchBar --}}
     <div class="search-bar">
