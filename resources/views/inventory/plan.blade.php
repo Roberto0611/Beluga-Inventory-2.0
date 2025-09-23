@@ -9,8 +9,12 @@
 
     {{-- Buttons --}}
     <div class="d-flex justify-content-center gap-2 p-2">
-        <a href="{{route('plan', ['ubicacion' => 'almacen'])}}"   class="btn btn-success" id="idealAlmacenButton">Ideal Almacen</a>
-        <a href="{{route('plan', ['ubicacion' => 'auto'])}}" id="idealAutoButton" class="btn btn-primary">Ideal Auto</a>
+        <a href="{{ route('plan', ['ubicacion' => 'almacen']) }}"
+           class="btn {{ ($ubicacion === 'almacen') ? 'btn-success' : 'btn-primary' }}"
+           id="idealAlmacenButton">Ideal Almacén</a>
+        <a href="{{ route('plan', ['ubicacion' => 'auto']) }}"
+           class="btn {{ ($ubicacion === 'auto') ? 'btn-success' : 'btn-primary' }}"
+           id="idealAutoButton">Ideal Auto</a>
     </div>
 
     {{-- SearchBar --}}

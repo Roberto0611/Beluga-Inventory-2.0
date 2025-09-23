@@ -12,19 +12,28 @@ class PlanController extends Controller
         return Inventory::where('catalogo_id', $productId)->sum('quantity');
     }
 
+    public function getStockByLocation($productId, $locationName){
+    return Inventory::where('catalogo_id', $productId)
+                    ->whereHas('location', function($query) use ($locationName) {
+                        $query->where('name', $locationName);
+                    })
+                    ->sum('quantity');
+    }
+
     public function index(Request $request, $ubicacion){
         // Obtener datos del catálogo
         $catalog = Catalogo::where('service', 0)->get();
         
         // Calcular stock y porcentaje faltante usando foreach (necesitamos $ubicacion en el scope)
         foreach ($catalog as $product) {
-            $product->current_stock = $this->getStock($product->ID);
+            //$product->current_stock = $this->getStock($product->ID);
+
             // Faltantes (no negativos)
+            $product->current_stock = $this->getStockByLocation($product->ID, $ubicacion);
             $product->missing_stock_almacen = max(0, $product->IdealAlmacen - $product->current_stock);
             $product->missing_stock_auto    = max(0, $product->IdealAuto - $product->current_stock);
         
             if ($ubicacion === 'almacen') {
-
                 $product->ideal_stock = $product->IdealAlmacen;
                 $product->missing_stock = $product->missing_stock_almacen;
 
