@@ -80,7 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     // If location block now has no rows, remove it and update again
                     if (locationBlock && locationBlock.querySelectorAll('tbody tr').length === 0) {
                         locationBlock.remove();
-                        recalcProductSummary(productAccordionBody);
+                        // If the removed block was currently selected in the dropdown, reset to all
+                        const select = productAccordionBody.querySelector(`select.product-location-filter[data-product-id='${productId}']`);
+                        if(select && select.value === locationName){
+                            select.value = '';
+                            // Reveal any hidden blocks (were hidden by location filter)
+                            productAccordionBody.querySelectorAll('.location-block').forEach(b => b.style.display='');
+                        }
+                        recalcProductSummary(productAccordionBody, {considerVisibility:true});
                         updateSelectOptions(productAccordionBody, productId);
                     }
 
@@ -251,29 +258,40 @@ function updateSelectOptions(accordionBody, productId){
     if(!accordionBody) return; if(!productId) return;
     const select = accordionBody.querySelector(`select.product-location-filter[data-product-id='${productId}']`);
     if(!select) return;
-    const locationBlocks = accordionBody.querySelectorAll('.location-block');
-    const visibleBlocks = Array.from(locationBlocks).filter(b => b.style.display !== 'none');
+    const blocks = Array.from(accordionBody.querySelectorAll('.location-block'));
+    let selectedValue = select.value;
+    // Detect if selected location block was removed
+    if(selectedValue && !blocks.some(b => b.getAttribute('data-location-block') === selectedValue)){
+        // Reset filter: show all blocks again
+        selectedValue = '';
+        select.value = '';
+        blocks.forEach(b => { if(b.style.display === 'none') b.style.display=''; });
+    }
+    // Build counts for all existing blocks (even if currently hidden by location filter)
     const counts = {};
-    visibleBlocks.forEach(block => {
+    blocks.forEach(block => {
         const name = block.getAttribute('data-location-block');
         let sum = 0;
         block.querySelectorAll('tbody tr').forEach(r => {
-            if(r.style.display === 'none') return; // skip hidden rows (other filters)
+            // Si la fila está oculta por otros filtros (search / caducidad) no se suma.
+            if(r.style.display === 'none') return;
             const qtyCell = r.querySelector('td:first-child');
             if(qtyCell){ const v = parseInt(qtyCell.textContent.trim(),10); if(!isNaN(v)) sum += v; }
         });
         counts[name] = sum;
     });
-    const currentValue = select.value;
+    // Rebuild select
     select.innerHTML = '';
     const allOpt = document.createElement('option');
     allOpt.value = '';
-    allOpt.textContent = `Todas las ubicaciones (${visibleBlocks.length})`;
+    allOpt.textContent = `Todas las ubicaciones (${blocks.length})`;
+    if(selectedValue === '') allOpt.selected = true;
     select.appendChild(allOpt);
     Object.entries(counts).forEach(([name,sum]) => {
         const opt = document.createElement('option');
-        opt.value = name; opt.textContent = `${name} (${sum})`;
-        if(name === currentValue) opt.selected = true;
+        opt.value = name;
+        opt.textContent = `${name} (${sum})`;
+        if(name === selectedValue) opt.selected = true;
         select.appendChild(opt);
     });
 }
