@@ -7,6 +7,12 @@
         <p>Guia de compra, lista de productos faltantes.</p>
     </div>
 
+    {{-- Buttons --}}
+    <div class="d-flex justify-content-center gap-2 p-2">
+        <a href="{{route('plan', ['ubicacion' => 'almacen'])}}"   class="btn btn-success" id="idealAlmacenButton">Ideal Almacen</a>
+        <a href="{{route('plan', ['ubicacion' => 'auto'])}}" id="idealAutoButton" class="btn btn-primary">Ideal Auto</a>
+    </div>
+
     {{-- SearchBar --}}
     <div class="search-bar">
         <input type="text" class="searchBarIndex" id="searchInput" placeholder="Buscar productos...">
@@ -24,7 +30,7 @@
                     </div>
                     <div class="product-details flex-grow-1 text-center">
                         <h5 class="mb-1 product-name">{{$item->nombre}}</h5>
-                        <p class="mb-0 text-muted">Ideal en Pet Shed: {{$item->IdealPetShed}}</p>
+                        <p class="mb-0 text-muted">Ideal en {{ $ubicacion }}: {{$item->ideal_stock}}</p>
                         <p class="mb-0 text-muted">Cantidad actual: {{$item->current_stock}}</p>
                         <p class="mb-0 text-muted faltante">Cantidad Faltante: {{$item->missing_stock}}</p>
                     </div>

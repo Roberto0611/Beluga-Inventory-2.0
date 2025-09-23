@@ -41,10 +41,10 @@ Route::delete('/deleteCatalog/{id}',[CatalogController::class, 'destroy'])->name
 Route::put('updateCatalog/{id}',[CatalogController::class, 'update'])->name('editCatalog')->middleware('auth');
 
 // Routes for plan
-Route::get('/plan',[PlanController::class,'index'])->name('plan')->middleware('auth');
+Route::get('/plan/{ubicacion}',[PlanController::class,'index'])->name('plan')->middleware('auth');
 
 // Route for sells (this codes are not more used in this version, because sells is another system)
-// Route::get('/sellsIndex',[sellsController::class,'index'])->name('sells')->middleware('auth');
+Route::get('/sellsIndex',[sellsController::class,'index'])->name('sells')->middleware('auth');
 
 // Route::get('/newsell',[sellsController::class,'newsell'])->name('newsell')->middleware('auth');
 

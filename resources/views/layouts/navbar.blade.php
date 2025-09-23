@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white d-flex align-items-center" href="{{route('plan')}}">
+                    <a class="nav-link text-white d-flex align-items-center" href="{{route('plan', 'almacen')}}">
                         Plan 🗓️
                     </a>
                 </li>
