@@ -89,6 +89,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         recalcProductSummary(productAccordionBody, {considerVisibility:true});
                         updateSelectOptions(productAccordionBody, productId);
+
+                        // Si ya no quedan bloques de ubicación, eliminar todo el accordion del producto
+                        const remainingBlocks = productAccordionBody.querySelectorAll('.location-block').length;
+                        if(remainingBlocks === 0){
+                            const accordionItem = productAccordionBody.closest('.accordion-item');
+                            if(accordionItem){ accordionItem.remove(); }
+                        }
                     }
 
                     // Re-run external counters if present
