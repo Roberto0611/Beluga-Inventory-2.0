@@ -6,7 +6,7 @@
     <!-- Main content -->
     <main class="flex-grow-1 d-flex align-items-center justify-content-center">
         <div class="text-center bg-white rounded shadow-lg pt-5 pb-4" style="max-width: 500px; width: 100%;">
-            <h1 class="mb-3" style="color: #E68A2E;">Bienvenido a Beluga Pet Shed</h1>
+            <h1 class="mb-3" style="color: #E68A2E;">Bienvenido a Beluga </h1>
             <p class="lead mb-4 text-secondary">
                 Selecciona una opción para comenzar tu jornada laboral.
             </p>
@@ -23,7 +23,7 @@
     
     <footer class="footer mt-auto py-3 bg-light text-center text-muted">
         <div class="container">
-            <span>&copy; {{ date('Y') }} Beluga Pet Shed. Todos los derechos reservados.</span>
+            <span>&copy; {{ date('Y') }} Beluga. Todos los derechos reservados.</span>
         </div>
     </footer>
 </div>

@@ -176,7 +176,7 @@
                                             @foreach ($locationItems as $item)
                                                 <tr data-inventory-id="{{ $item->id }}" data-location="{{ $locationName }}" data-product-id="{{ $catalogo_id }}" class="inventory-row">
                                                     <td>{{ $item->quantity }}</td>
-                                                    <td class="dateInfo">{{ $item->expiration_date }}</td>
+                                                    <td class="dateInfo">{{ $item->expiration_date ?? 'No asignada' }}</td>
                                                         <td>
                                                             <form action="{{route('reduceProduct')}}" method="POST" class="reduce-form">
                                                                 @csrf
