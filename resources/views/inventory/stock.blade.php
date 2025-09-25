@@ -183,7 +183,11 @@
                                                                 <input type="hidden" name="inventory_id" value="{{ $item->id }}">
                                                                 <input type="hidden" name="current_quantity" value="{{ $item->quantity }}">
                                                                 <input type="hidden" name="reduction_quantity" value="">
-                                                                <button type="submit" class="btn btn-outline-danger btn-sm">Reducir</button>
+
+                                                                @can('Eliminar registros de inventario')
+                                                                    <button type="submit" class="btn btn-outline-danger btn-sm">Reducir</button>   
+                                                                @endcan
+                                                                
                                                             </form>
                                                         </td>
                                                 </tr>
